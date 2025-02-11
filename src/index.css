@@ -1,0 +1,35 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #EBA1B5;
+    --secondary: #87CAC7;
+    --border: #8EC1D7;
+    --background: #FCE280;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-yellow via-blue to-teal min-h-screen font-sans text-gray-800;
+  }
+}
+
+.glass {
+  @apply bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg;
+}
+
+.input-glass {
+  @apply glass w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink/50 transition-all;
+}
+
+.button-primary {
+  @apply bg-pink hover:bg-pink/90 text-white font-semibold py-3 px-6 rounded-lg 
+         transition-all duration-300 transform hover:scale-105 active:scale-95
+         shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-pink/50;
+}
+
+.label-float {
+  @apply absolute left-4 transition-all duration-200 transform -translate-y-3 text-sm bg-white/80 px-2 rounded text-gray-700;
+}
