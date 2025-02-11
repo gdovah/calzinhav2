@@ -24,6 +24,7 @@ const FeedbackForm = () => {
   const [name, setName] = useState('');
   const [rating, setRating] = useState<number>(5);
   const [suggestion, setSuggestion] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   const saveFeedback = () => {
     if (!name || !suggestion) {
@@ -47,14 +48,27 @@ const FeedbackForm = () => {
       JSON.stringify([...existingFeedback, feedback])
     );
 
+    // Prepare email content
+    const emailSubject = encodeURIComponent('Novo Feedback da Calculadora');
+    const emailBody = encodeURIComponent(`
+Nome: ${feedback.name}
+Avaliação: ${feedback.rating}/5
+Sugestão: ${feedback.suggestion}
+Data: ${new Date(feedback.timestamp).toLocaleString('pt-BR')}
+    `);
+    
+    // Open email client
+    window.open(`mailto:gustavo.fgarcia1@live.com?subject=${emailSubject}&body=${emailBody}`);
+
     toast.success('Obrigado pelo seu feedback!');
     setName('');
     setRating(5);
     setSuggestion('');
+    setIsOpen(false);
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button
           variant="ghost"

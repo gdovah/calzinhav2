@@ -37,7 +37,7 @@ const Calculator = () => {
       <FeedbackForm />
       <div className="glass w-full max-w-md p-6 rounded-2xl space-y-6">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          Calculadora de Tabela
+          Quanto Vai Cair? 💸
         </h1>
 
         <div className="space-y-4">
